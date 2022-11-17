@@ -78,19 +78,28 @@ class AlarmClock {
       alert('Alarm cleared');
     }
     console.log("Alarm Stopped!");
+    alert("Maximum snooze limit reached!");
   }
 
   //To snooze alarm for max 3 times
   static snoozeAlarm() {
     audio.pause();
     snooze++;
-    if (snooze < 3) {
+    console.log(snooze);
+    if (snooze < 3 && snoozeAttempts !=0) {
       setTimeout(() => {
         audio.play();
-      }, 500000);
-    }
+      }, 10000);
     alert("Alarm snoozed for next 5 minutes! You can snooze the alarm for maximum "+`${--snoozeAttempts}`+" times.");
+    }
+    else{
+        snooze = 0;
+        snoozeAttempts = 3;
+        AlarmClock.stopAlarm();
+    }
+
   }
+
 }
 
 
