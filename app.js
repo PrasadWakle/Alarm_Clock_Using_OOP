@@ -89,7 +89,7 @@ class AlarmClock {
     if (snooze < 3 && snoozeAttempts !=0) {
       setTimeout(() => {
         audio.play();
-      }, 10000);
+      }, 500000);
     alert("Alarm snoozed for next 5 minutes! You can snooze the alarm for maximum "+`${--snoozeAttempts}`+" times.");
     }
     else{
